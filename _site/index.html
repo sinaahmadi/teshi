@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Teşî | Teşî (meaning ‘spindle’ in Kurdish) is a simple game that detects your dialect based on a few questions about how you say certain words. Just as a spindle weaves threads together, dialects are beautifully interwoven, each contributing to the rich fabric of a language. Teşî is read as “tashi”, rhyming with “flashy”!</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Teşî" />
+<meta name="author" content="Sina Ahmadi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Teşî (meaning ‘spindle’ in Kurdish) is a simple game that detects your dialect based on a few questions about how you say certain words. Just as a spindle weaves threads together, dialects are beautifully interwoven, each contributing to the rich fabric of a language. Teşî is read as “tashi”, rhyming with “flashy”!" />
+<meta property="og:description" content="Teşî (meaning ‘spindle’ in Kurdish) is a simple game that detects your dialect based on a few questions about how you say certain words. Just as a spindle weaves threads together, dialects are beautifully interwoven, each contributing to the rich fabric of a language. Teşî is read as “tashi”, rhyming with “flashy”!" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Teşî" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Teşî" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Sina Ahmadi"},"description":"Teşî (meaning ‘spindle’ in Kurdish) is a simple game that detects your dialect based on a few questions about how you say certain words. Just as a spindle weaves threads together, dialects are beautifully interwoven, each contributing to the rich fabric of a language. Teşî is read as “tashi”, rhyming with “flashy”!","headline":"Teşî","name":"Teşî","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Teşî" />
+
+
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+
+
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" href="/">
+      <img src="/assets/teshi_logo.png" alt="Teşî" style="height: 50px; margin-right: 5px; vertical-align: middle;">
+      Teşî
+      <span style="font-weight: 300; font-size: 0.8em; color: #666; margin-left: 10px; font-family: 'Crimson Text', serif; font-style: italic;">let dialects interweave</span>
+
+
+    </a>
+
+    <!-- <a class="site-title" rel="author" href="/">Teşî</a> --></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurdish Dialect Detector</title>
+    <script src="/assets/js/main.js" defer=""></script>
+	<link rel="stylesheet" href="/assets/css/styles.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+
+<div class="dialect-container">
+<!--   <div class="title-container">
+    <img src="/assets/teshi_logo.png" alt="Logo" class="logo">
+    <h1>Dialect Detector</h1>
+  </div> -->
+    
+   <div class="language-info">
+    <span class="label">Select your language: </span>
+    <span class="value">Central Kurdish</span>
+  </div>
+
+
+  <p>Select how you say each word in your dialect:</p>
+  
+  <div id="questions-container">
+    <!-- Questions will be dynamically inserted here -->
+  </div>
+
+  <button id="submit-btn" onclick="predictDialect()" disabled="">Detect My Dialect</button>
+
+  <div id="result" style="display: none;">
+    <h2>Your dialect prediction:</h2>
+    <p id="prediction-text"></p>
+    <div id="map" style="height: 400px; width: 100%; border-radius: 8px;"></div>
+  </div>
+</div>
+
+
+
+  </div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  <div class="wrapper">
+    <div class="footer-col-wrapper" style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+      <div class="footer-col" style="min-width: 200px;">
+        <p class="feed-subscribe">
+          <a href="http://localhost:4000/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Sina Ahmadi</li>
+          <li><a class="u-email" href="sinaahmadi.yae@gmail.com">sinaahmadi.yae@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" style="max-width: 800px; text-align: left;">
+        <p>Teşî (meaning &#39;spindle&#39; in Kurdish) is a simple game that detects your dialect based on a  few questions about how you say certain words. Just as a spindle weaves threads together,  dialects are beautifully interwoven, each contributing to the rich fabric of a language. Teşî is read as &quot;tashi&quot;, rhyming with &quot;flashy&quot;!</p>
+      </div>
+    </div>
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/sinaahmadi" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/sina_ahm" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+  </div>
+</footer></body>
+
+</html>

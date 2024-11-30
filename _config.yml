@@ -1,0 +1,51 @@
+title: Teşî
+subtitle: let dialects interweave
+email: https://sinaahmadi.github.io
+
+description: >- # this means to ignore newlines until "baseurl:"
+  Teşî (meaning 'spindle' in Kurdish) is a simple game that detects your dialect based on a 
+  few questions about how you say certain words. Just as a spindle weaves threads together, 
+  dialects are beautifully interwoven, each contributing to the rich fabric of a language.
+  Teşî is read as "tashi", rhyming with "flashy"!
+
+baseurl: "/teshi" # the subpath of your site, e.g. /blog
+url: "https://sinaahmadi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: sina_ahm
+github_username:  sinaahmadi
+
+author:
+  name: Sina Ahmadi
+  email: sinaahmadi.yae@gmail.com
+
+minima:
+  social_links:
+    - { platform: github,  user_url: "https://github.com/sinaahmadi" }
+    - { platform: twitter, user_url: "https://twitter.com/sina_ahm" }
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+
+# include: ["_assets", "_includes"]
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude: ["_posts", "about.markdown"]
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600&display=swap');
+
+.dialect-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.questions-header {
+    display: grid;
+    grid-template-columns: 1fr 200px 120px;
+    gap: 15px;
+    padding: 8px;
+    direction: rtl;
+    margin-bottom: 16px;
+    font-weight: 500;
+    color: #666;
+}
+
+.question {
+    margin: 12px 0;
+    display: grid;
+    grid-template-columns: 1fr 200px 120px;
+    gap: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    direction: rtl;
+}
+
+.word {
+    font-size: 24px;
+    text-align: right;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-weight: 500;
+    grid-column: 3;
+}
+
+select {
+    padding: 6px 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    direction: rtl;
+    grid-column: 2;
+}
+
+select option {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    padding: 4px 8px;
+}
+
+button#submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 16px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button#submit-btn:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+#map {
+    margin: 20px 0;
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.leaflet-popup-content {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    text-align: center;
+    direction: rtl;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+#prediction-text {
+    text-align: left;
+    font-size: 1.1em;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.share-btn {
+    background-color: #4267B2;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.share-btn:hover {
+    background-color: #365899;
+}
+
+.share-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.2s;
+}
+
+.share-btn:hover {
+    opacity: 0.9;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.language-selection {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.language-selection select {
+    padding: 6px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.language-info {
+  margin-bottom: 1em; /* Add spacing below the text */
+  font-size: 1em; /* Adjust font size as needed */
+}
+
+.language-info .label {
+  font-weight: bold;
+}
+
+.language-info .value {
+  color: gray;
+  font-style: italic; /* Optional: make it italic */
+}
