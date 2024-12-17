@@ -173,3 +173,94 @@ button#submit-btn:hover:not(:disabled) {
   color: gray;
   font-style: italic; /* Optional: make it italic */
 }
+
+.post-rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.post-rtl h1, 
+.post-rtl h2, 
+.post-rtl h3, 
+.post-rtl h4, 
+.post-rtl h5, 
+.post-rtl h6 {
+    text-align: right;
+    font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+.post-rtl .post-meta {
+    direction: ltr;
+    text-align: right;
+}
+
+.post-rtl blockquote {
+    border-left: none;
+    border-right: 4px solid #e8e8e8;
+    padding-right: 15px;
+    padding-left: 0;
+}
+
+.references .highlight {
+    background-color: #f8f9fa;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    direction: ltr;
+    text-align: left;
+}
+
+.reference-item {
+    display: block;
+    margin-bottom: 0.5em;
+    padding-left: 2em;
+    text-indent: -2em;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.citation {
+    color: #2971b5 !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.citation:hover {
+    text-decoration: underline;
+}
+
+.pos-filter {
+    display: flex;
+    flex-direction: column;  /* This will stack items vertically */
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    direction: rtl;
+}
+
+.pos-filter label {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    border-bottom: 1px solid #ddd;  /* Line between items */
+}
+
+.pos-filter label:last-child {
+    border-bottom: none;  /* Remove border from last item */
+}
+
+.pos-filter input[type="radio"] {
+    accent-color: #2971b5;
+    margin-left: 0.5rem;
+}
+
+.pos-filter span {
+    font-size: 0.95rem;
+}

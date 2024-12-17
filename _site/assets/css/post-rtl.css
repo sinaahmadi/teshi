@@ -1,0 +1,71 @@
+.post-content ul {
+    padding-right: 2em;
+    margin: 1.2em 0;
+    list-style: none;
+}
+
+.post-content ul li {
+    position: relative;
+    padding-right: 0.8em;
+    margin-bottom: 0.3em;
+    line-height: 1.8;
+}
+
+.post-content ul li::before {
+    content: "•";
+    position: absolute;
+    right: -1.2em;
+    color: #2971b5;
+    font-size: 1.2em;
+}
+
+.post-content ul ul {
+    margin-top: 0.3em;
+    margin-right: 1em;
+}
+
+.post-content ul ul li::before {
+    content: "○";
+    color: #555;
+}
+
+.post-content p {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.post-content ol {
+    padding-right: 2em;
+    margin: 1.2em 0;
+    list-style: none;
+    counter-reset: item;
+}
+
+.post-content ol li {
+    position: relative;
+    padding-right: 0.8em;
+    margin-bottom: 0.3em;
+    line-height: 1.8;
+}
+
+.post-content ol li::before {
+    content: counter(item) ".";
+    counter-increment: item;
+    position: absolute;
+    right: -2em;
+    color: #2971b5;
+    font-weight: 500;
+}
+
+/* Nested enumerated lists */
+.post-content ol ol {
+    margin-top: 0.3em;
+    margin-right: 1em;
+    counter-reset: subitem;
+}
+
+.post-content ol ol li::before {
+    content: counter(item) "." counter(subitem);
+    counter-increment: subitem;
+    color: #555;
+}

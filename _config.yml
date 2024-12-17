@@ -1,8 +1,11 @@
 title: Teşî
 subtitle: let dialects interweave
 email: https://sinaahmadi.github.io
+description: "تەشی ماڵپەڕێکی ساکارە بۆ خزمەتکردنی شێوەزارەکانی کوردی کە پێکهاتووە لە ئەتڵەسێکی خنجیلانە بۆ شێوەزارەکانی کوردیی ناوەندی، بنکەدراوەیەک بۆ بەراوردکاریی شێوەزارەکان و کایەیەکی سادە کە بە پشتبەستن بە چەند پرسیارێک سەبارەت بە چۆنیەتیی وتنی هەندێک وشە، شێوەزارەکەت دەستنیشان دەکات."
+direction: rtl
+lang: ckb
 
-description: >- # this means to ignore newlines until "baseurl:"
+description_en: >- # this means to ignore newlines until "baseurl:"
   Teşî (meaning 'spindle' in Kurdish) is a simple game that detects your dialect based on a 
   few questions about how you say certain words. Just as a spindle weaves threads together, 
   dialects are beautifully interwoven, each contributing to the rich fabric of a language.
@@ -22,13 +25,17 @@ minima:
     - { platform: github,  user_url: "https://github.com/sinaahmadi" }
     - { platform: twitter, user_url: "https://twitter.com/sina_ahm" }
 
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
 
 
-# include: ["_assets", "_includes"]
+include: ["assets", "_includes", "_data"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -38,7 +45,7 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-exclude: ["_posts", "about.markdown"]
+exclude: [hidden]
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/

@@ -1,0 +1,8 @@
+{%- if site.data.references -%}
+  {%- assign ref = site.data.references[include.key] -%}
+  {%- if ref -%}
+    <a href="#ref-{{include.key}}" onclick="document.getElementById('ref-{{include.key}}').scrollIntoView();" class="citation">({{ ref.author }}, {{ ref.year }})</a>
+  {%- else -%}
+    <span style="color: red;">[Citation not found]</span>
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,155 @@
+ahmadi2022:
+  author: "Ahmadi"
+  year: 2022
+  title: "Your Paper Title"
+  journal: "Journal Name"
+  volume: "1"
+  pages: "123-145"
+  
+smith2023:
+  author: "Smith, J."
+  year: 2023
+  title: "Another Paper"
+  journal: "Another Journal"
+  volume: "2"
+  pages: "23-45"
+
+morgan1904:
+  author: "Jacques Morgan"
+  title: "Etudes linguistiques: Dialectes kurdes, langues et dialectes du nord de la Perse"
+  publisher: "E. Leroux"
+  year: 1904
+  
+mackenzie1962I:
+  author: "D. N. Mackenzie"
+  title: "Kurdish dialect studies vol.1"
+  publisher: "Oxford University Press"
+  year: 1961
+  page: 82
+  volumn: I
+  
+mackenzie1962II:
+  author: "D. N. Mackenzie"
+  title: "Kurdish dialect studies vol.1"
+  publisher: "Oxford University Press"
+  year: 1962
+  page: 82
+  volumn: II
+  
+mukriani1990:
+    author: "گیو موکریانی"
+    title: "فەرهەنگی کوردستان"
+    publisher: "دەزگای چاپ و بڵاوکردنەوەی ئاراس"
+    year: 1999
+
+xal1960:
+    author: "شێخ محەمەدی خاڵ"
+    title: "فەرهەنگی خاڵ"
+    publisher: "دەزگای چاپ و بڵاوکردنەوەی ئاراس"
+    year: 1960
+    
+jugel2014linguistic:
+    author: "Thomas Jügel"
+    title: "On the linguistic history of Kurdish"
+    booktitle: "Kurdish Studies Archive"
+    pages: "149--170"
+    year: 2014
+    publisher: "Brill"
+    type: incollection
+
+haig2024introduction:
+  author: "Haig, Geoffrey and Öpengin, Ergin"
+  title: "Introduction to Special Issue Kurdish: A critical research overview"
+  journal: "Kurdish Studies Archive"
+  pages: "122--148"
+  year: 2024
+  publisher: "Brill"
+  type: article
+  
+shwani2001:
+    author: "ڕەفیق شوانی"
+    title: "چەند بابەتێکی زمان و ڕێزمانی کوردی"
+    publisher: "دەزگای چاپ و بڵاوکردنەوەی موکریانی"
+    year: 2001
+
+hassanpour1992:
+    author: "Amir Hassanpour"
+    title: "Nationalism and Language in Kurdistan, 1918-1985"
+    publisher: "Mellen Research University Press"
+    year: 1992
+    address: "San Francisco, CA"
+    type: book
+    
+izady1992:
+  author: "M. Izady"
+  title: "The Kurds: A Concise Handbook"
+  publisher: "Taylor & Francis"
+  year: 1992
+  address: "London"
+  type: book
+  
+mackenzie1961origins:
+    author: "D. N. MacKenzie"
+    title: "THE ORIGINS OF KURDISH"
+    journal: "Transactions of the Philological Society"
+    volume: 60
+    number: 1
+    pages: "68--86"
+    year: 1961
+    publisher: "Blackwell Publishing Ltd"
+    address: "Oxford, UK"
+    type: article
+    
+hassanpour2010sorani:
+  author: "Amir Hassanpour" 
+  title: "شوڤینیسمی سۆرانی و ئه‌فسانه‌کانی"
+  year: 2010
+  type: webpage
+  url: "https://kurdishacademy.org/?page_id=881"
+  language: ckb
+  
+matras2022structural:
+    author: "Yaron Matras and Geoffrey Haig and Ergin Öpengin"
+    title: "Structural and Typological Variation in the Dialects of Kurdish"
+    publisher: "Springer"
+    year: 2022
+    type: book
+  
+matras2019revisiting:
+    author: "Yaron Matras"
+    title: "Revisiting Kurdish dialect geography: Findings from the Manchester database"
+    journal: "Current issues in Kurdish linguistics"
+    volume: 1
+    pages: "225"
+    year: 2019
+    publisher: "University of Bamberg Press"
+    location: "Bamberg"
+    type: article
+    
+opengin2014regional:
+    author: "Ergin Öpengin and Geoffrey Haig"
+    title: "Regional variation in Kurmanji: A preliminary classification of dialects"
+    booktitle: "Kurdish Studies Archive"
+    pages: "171--212"
+    year: 2014
+    publisher: "Brill"
+    type: incollection
+    
+ahmadi2024language:
+    author: "Sina Ahmadi and Daban Jaff and Md Mahfuz Ibn Alam and Antonios Anastasopoulos"
+    title: "Language and Speech Technology for Central Kurdish Varieties"
+    booktitle: "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)"
+    year: 2024
+    address: "Torino, Italia"
+    publisher: "ELRA and ICCL"
+    pages: "10034--10045"
+    url: "https://aclanthology.org/2024.lrec-main.877"
+    type: inproceedings
+    
+thackston2006sorani:
+  author: "Thackston, Wheeler M."
+  title: "Sorani Kurdish: A Reference Grammar with Selected Readings"
+  publisher: "Harvard University"
+  year: 2006
+  type: book
+  place: "Cambridge, MA"

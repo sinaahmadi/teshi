@@ -1,0 +1,12 @@
+<div class="references" dir="ltr">
+  <!-- <h2>References</h2> -->
+  {%- assign sorted_refs = site.data.references | sort -%}
+  {%- for item in sorted_refs -%}
+    <a id="ref-{{item[0]}}"></a>
+  {%- endfor -%}
+{% highlight text %}
+{%- for item in sorted_refs -%}
+[{{ forloop.index }}] {{ item[1].author }} ({{ item[1].year }}). {{ item[1].title }}. {{ item[1].journal }}{% if item[1].volume %}, {{ item[1].volume }}{% endif %}{% if item[1].pages %}, {{ item[1].pages }}{% endif %}.
+{% endfor -%}
+{% endhighlight %}
+</div>

@@ -1,16 +1,15 @@
 ---
 layout: base
 ---
-
 <div class="home">
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h1 class="page-heading" style="direction: rtl; font-family: 'Noto Sans Arabic', sans-serif; text-align: right;">{{ page.title }}</h1>
   {%- endif -%}
-
   {{ content }}
+</div>
 
 
-  {% if site.paginate %}
+<!--   {% if site.paginate %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
@@ -57,5 +56,5 @@ layout: base
     {%- endif %}
 
   {%- endif -%}
-
+ -->
 </div>
