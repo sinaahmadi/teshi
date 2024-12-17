@@ -271,3 +271,13 @@ html {
 .pos-filter span {
     font-size: 0.95rem;
 }
+
+.social-media-list {
+  display: inline;
+  list-style: none;
+}
+
+.social-media-list li {
+  display: inline-block;
+  margin-right: 10px;
+}

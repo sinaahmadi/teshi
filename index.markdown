@@ -6,6 +6,7 @@ lang: ckb
 ---
 
 {::nomarkdown}
+<div class="dialect-container post-rtl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +33,7 @@ lang: ckb
     <p id="prediction-text"></p>
     <div id="map" style="height: 400px; width: 100%; border-radius: 8px;"></div>
    </div>
+</div>
 </div>
 {:/nomarkdown}
 

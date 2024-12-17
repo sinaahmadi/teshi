@@ -3,30 +3,23 @@
   <div class="wrapper">
     <div class="footer-col-wrapper" style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
       <div class="footer-col" style="min-width: 200px;">
-       <!--  <p class="feed-subscribe">
-          <a href="{{ site.feed.path | default: 'feed.xml' | absolute_url }}">
-            <svg class="svg-icon orange">
-              <use xlink:href="{{ 'assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-            </svg><span>Subscribe</span>
-          </a>
-        </p> -->
-      {%- if site.author %}
-        <ul class="contact-list">
-          {% if site.author.name -%}
-            <li class="p-name">{{ site.author.name | escape }}</li>
-          {% endif -%}
-          {% if site.author.email -%}
-            <li><a class="u-email" href="mailto:{{ site.author.email }}">email</a></li>
-          {%- endif %}
-        </ul>
-      {%- endif %}
+        {%- if site.author %}
+          <ul class="contact-list">
+            {% if site.author.name -%}
+              <li class="p-name">{{ site.author.name | escape }}</li>
+            {% endif -%}
+            {% if site.author.email -%}
+              <li><a class="u-email" href="mailto:{{ site.author.email }}">email</a></li>
+            {%- endif %}
+          </ul>
+          <div class="social-links" style="display: inline-block; white-space: nowrap;">
+            {%- include social.html -%}
+          </div>
+        {%- endif %}
       </div>
       <div class="footer-col" style="max-width: 800px; text-align: right; direction: rtl; font-family: 'Noto Sans Arabic', sans-serif;">
         <p>{{ site.description | escape }}</p>
       </div>
-    </div>
-    <div class="social-links">
-      {%- include social.html -%}
     </div>
   </div>
 </footer>
