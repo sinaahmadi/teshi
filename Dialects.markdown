@@ -80,7 +80,7 @@ direction: rtl
     - <span data-tooltip="Northern Central Kurdish">کوردیی ناوەندیی سەروو </span> کە ناوەندەکەی هەولێرە
     - <span data-tooltip="Southern Central Kurdish">کوردیی ناوەندیی خوارین</span> کە ناوەندەکەی سلێمانییە
 
-وێڕای ئەو ژێدەرانە کە ئاماژەم پێ کردوون، کتێبی «گۆڕانکارییە پێکهاتەیی و شێوەناسانەیییەکان لە شێوەزارەکانی کوردیدا» {% include cite.html key="matras2022structural" %}یش سەرچاوەیەکی بەسوودە بۆ هەڵسەنگاندنی جیاوازییەکان. 
+وێڕای ئەو ژێدەرانە کە ئاماژەم پێ کردوون، کتێبی «گۆڕانکارییە پێکهاتەیی و شێوەناسانەیییەکان لە شێوەزارەکانی کوردیدا» {% include cite.html key="matras2022structural" %} سەرچاوەیەکی بەسوودە بۆ هەڵسەنگاندنی جیاوازییەکان. 
 
 <html>
 <div style="text-align: center; margin: 20px 0;">

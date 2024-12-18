@@ -281,3 +281,85 @@ html {
   display: inline-block;
   margin-right: 10px;
 }
+
+/* Option 1: Purple Theme */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+    color: #7161EF;  /* Soft purple */
+    border-bottom: 1px dotted #7161EF;
+    transition: color 0.2s ease;
+}
+
+[data-tooltip]:hover {
+    color: #5546c7;  /* Darker purple on hover */
+}
+
+/* Option 2: Green Theme */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+    color: #2E7D32;  /* Forest green */
+    border-bottom: 1px dotted #2E7D32;
+    transition: color 0.2s ease;
+}
+
+[data-tooltip]:hover {
+    color: #1B5E20;  /* Darker green on hover */
+}
+
+/* Option 3: Rust/Orange Theme */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+    color: #D35400;  /* Rust orange */
+    border-bottom: 1px dotted #D35400;
+    transition: color 0.2s ease;
+}
+
+[data-tooltip]:hover {
+    color: #A04000;  /* Darker orange on hover */
+}
+
+/* Option 4: Teal Theme */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+    color: #00796B;  /* Teal */
+    border-bottom: 1px dotted #00796B;
+    transition: color 0.2s ease;
+}
+
+[data-tooltip]:hover {
+    color: #004D40;  /* Darker teal on hover */
+}
+
+/* Rest of tooltip styles remain the same for all options */
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1000;
+    font-family: 'Noto Sans', sans-serif;
+    direction: ltr;
+    margin-bottom: 5px;
+}
+
+[data-tooltip]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: -1px;
+}
