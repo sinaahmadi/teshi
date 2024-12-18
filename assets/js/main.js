@@ -42,8 +42,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         ]);
 
         // Process all data
-        Object.entries(morphoSyntacticData).forEach(([standard, variants]) => processEntry(standard, variants));
-        Object.entries(termsData).forEach(([standard, variants]) => processEntry(standard, variants));
+        Object.entries(morphoSyntacticData).forEach(([standard, variants]) => 
+            processEntry(standard, variants, false));
+        Object.entries(termsData).forEach(([standard, variants]) => 
+            processEntry(standard, variants, true));
         processTSVData(tsvData);
         
         if (allDialectData.length > 0) {
@@ -70,25 +72,25 @@ async function shareResult() {
             const file = new File([blob], 'dialect-prediction.png', { type: 'image/png' });
 
             await navigator.share({
-                text: `${customMessageText}\n\n${shareUrl}`,  // Add double newline
+                text: `${customMessageText}\n\n${shareUrl}`,
                 files: [file],
                 url: shareUrl
             });
         } 
         else if (navigator.share) {
             await navigator.share({
-                text: `${customMessageText}\n\n${shareUrl}`,  // Add double newline
+                text: `${customMessageText}\n\n${shareUrl}`,
                 url: shareUrl
             });
         }
         else {
-            await navigator.clipboard.writeText(`${customMessageText}\n\n${shareUrl}`);  // Add double newline
+            await navigator.clipboard.writeText(`${customMessageText}\n\n${shareUrl}`);
             alert('Result copied to clipboard! You can now paste it anywhere.');
         }
     } catch (error) {
         console.error('Error sharing:', error);
         const textArea = document.createElement('textarea');
-        textArea.value = `${customMessageText}\n\n${shareUrl}`;  // Add double newline
+        textArea.value = `${customMessageText}\n\n${shareUrl}`;
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand('copy');
@@ -99,7 +101,7 @@ async function shareResult() {
 
 async function shareToX() {
     const customMessageText = document.querySelector('.custom-message').textContent.trim();
-    const text = encodeURIComponent(`${customMessageText}\n\n`);  // Add double newline
+    const text = encodeURIComponent(`${customMessageText}\n\n`);
     const url = encodeURIComponent('https://sinaahmadi.github.io/teshi/');
     window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, '_blank');
 }
@@ -130,13 +132,14 @@ function parseTSV(text) {
     });
 }
 
-function processEntry(standard, variants) {
+function processEntry(standard, variants, isFromTermsJson = false) {
     // Skip if we've already processed this standard word
     if (processedStandardWords.has(standard)) return;
     
     const entry = {
         word: standard,
-        variants: []
+        variants: [],
+        isFromTermsJson: isFromTermsJson
     };
 
     const dialectMap = {
@@ -165,7 +168,7 @@ function processEntry(standard, variants) {
 
     if (entry.variants.length >= 2) {
         allDialectData.push(entry);
-        processedStandardWords.add(standard);  // Mark this word as processed
+        processedStandardWords.add(standard);
     }
 }
 
@@ -175,7 +178,8 @@ function processTSVData(tsvData) {
 
         const entry = {
             word: row.Standard,
-            variants: []
+            variants: [],
+            isFromTermsJson: false
         };
 
         const dialectColumns = {
@@ -204,7 +208,7 @@ function processTSVData(tsvData) {
 
         if (entry.variants.length >= 2) {
             allDialectData.push(entry);
-            processedStandardWords.add(row.Standard);  // Mark this word as processed
+            processedStandardWords.add(row.Standard);
         }
     });
 }
@@ -226,6 +230,7 @@ function initializeQuestions() {
         const select = document.createElement('select');
         select.id = `question-${index}`;
         select.className = 'dialect-select';
+        select.dataset.fromTerms = wordData.isFromTermsJson;
         select.onchange = checkAllAnswered;
         
         const defaultOption = document.createElement('option');
@@ -274,17 +279,32 @@ function predictDialect() {
         'Mahabad': 0
     };
     
+    const termsOnlyRegionCounts = {
+        'Sulaimanyah': 0,
+        'Sanandaj': 0,
+        'Erbil': 0,
+        'Mahabad': 0
+    };
+    
     // Count region occurrences
     selects.forEach(select => {
         if (select.value) {
             const variant = JSON.parse(select.value);
+            const isFromTerms = select.dataset.fromTerms === 'true';
+            
             variant.regions.forEach(region => {
                 regionCounts[region] = (regionCounts[region] || 0) + 1;
+                
+                // Only count for terms.json responses
+                if (isFromTerms) {
+                    termsOnlyRegionCounts[region] = (termsOnlyRegionCounts[region] || 0) + 1;
+                }
             });
         }
     });
     
     const total = Object.values(regionCounts).reduce((a, b) => a + b, 0);
+    const termsTotal = Object.values(termsOnlyRegionCounts).reduce((a, b) => a + b, 0);
     
     // Sort regions by count for display
     const sortedRegions = Object.entries(regionCounts)
@@ -301,16 +321,13 @@ function predictDialect() {
         const percentage = ((count / total) * 100).toFixed(1);
         const coords = EPICENTERS[region];
         
-        // Add marker with popup
         const marker = L.marker([coords.lat, coords.lng])
             .bindPopup(`${region}: ${percentage}%`)
             .addTo(map);
         markers.push(marker);
         
-        // Determine circle color based on region
         const circleColor = '#4CAF50';
         
-        // Add circle with opacity based on percentage and consistent border
         const circle = L.circle([coords.lat, coords.lng], {
             color: circleColor,
             fillColor: circleColor,
@@ -325,7 +342,6 @@ function predictDialect() {
     // Get the most probable dialect
     const mostProbableRegion = sortedRegions[0][0];
     const mostProbableDialect = dialectNames[mostProbableRegion];
-
 
     // Add a red marker for the most probable region
     const redIcon = L.icon({
@@ -342,23 +358,31 @@ function predictDialect() {
         .addTo(map);
     markers.push(mostProbableMarker);
 
-
     // Calculate group percentages
     const southernPercentage = ((regionCounts['Sulaimanyah'] + regionCounts['Sanandaj']) / total * 100).toFixed(1);
     const northernPercentage = ((regionCounts['Erbil'] + regionCounts['Mahabad']) / total * 100).toFixed(1);
+    
+    // Calculate broader region using only terms.json responses
+    const bashurPercentage = ((termsOnlyRegionCounts['Sulaimanyah'] + termsOnlyRegionCounts['Erbil']) / termsTotal * 100).toFixed(1);
+    const easternPercentage = ((termsOnlyRegionCounts['Mahabad'] + termsOnlyRegionCounts['Sanandaj']) / termsTotal * 100).toFixed(1);
+    
+    // Determine broader region based only on terms.json responses
+    const regionMessage = easternPercentage > bashurPercentage 
+        ? "وێ دەچێت خەڵکی ڕۆژهەڵاتی کوردستان بیت."
+        : "وێ دەچێت خەڵکی باشووری کوردستان بیت.";
 
     const predictionText = [
-   	  `Teşî predicts that your dialect is closest to that of ${mostProbableRegion} (${mostProbableDialect}).`,
-      '',
-      `🔵 Northern Central Kurdish: ${northernPercentage}%`,
-      `&nbsp;&nbsp;&nbsp;&nbsp;🏰 Erbil: ${((regionCounts['Erbil'] / total) * 100).toFixed(1)}%`,
-      `&nbsp;&nbsp;&nbsp;&nbsp;🌄 Mahabad: ${((regionCounts['Mahabad'] / total) * 100).toFixed(1)}%`,
-      '',
-      // Empty line for spacing
-      `🟡 Southern Central Kurdish: ${southernPercentage}%`,
-      `&nbsp;&nbsp;&nbsp;&nbsp;🏛️ Sulaimanyah: ${((regionCounts['Sulaimanyah'] / total) * 100).toFixed(1)}%`,
-      `&nbsp;&nbsp;&nbsp;&nbsp;👑 Sanandaj: ${((regionCounts['Sanandaj'] / total) * 100).toFixed(1)}%`
-    ].join('<br style="text-align: left;">');
+	    `تەشی دەڵێت شێوەزارەکەت لە ئی ${mostProbableDialect} نزیکترە`,
+        regionMessage,
+	    '',
+	    `🔵 کوردیی ناوەندیی سەروو: %${northernPercentage}`,
+	    `&nbsp;&nbsp;&nbsp;&nbsp;🏰 هەولێر (هەولێری): %${((regionCounts['Erbil'] / total) * 100).toFixed(1)}`,
+	    `&nbsp;&nbsp;&nbsp;&nbsp;🌄 مەهاباد (موکریانی): %${((regionCounts['Mahabad'] / total) * 100).toFixed(1)}`,
+	    '',
+	    `🟡 کوردیی ناوەندیی خوارین: %${southernPercentage}`,
+	    `&nbsp;&nbsp;&nbsp;&nbsp;🏛️ سلێمانی (بابانی): %${((regionCounts['Sulaimanyah'] / total) * 100).toFixed(1)}`,
+	    `&nbsp;&nbsp;&nbsp;&nbsp;👑 سنە (ئەردەڵانی): %${((regionCounts['Sanandaj'] / total) * 100).toFixed(1)}`
+	].join('<br style="text-align: left;">');
 
     // Get the most probable dialect
     // const mostProbableRegion = sortedRegions[0][0];
